@@ -63,6 +63,19 @@ jobs:
             CONFIG_REPRODUCIBLE_DEBUG_INFO=y
 
             CONFIG_PACKAGE_luci=y
+            CONFIG_PACKAGE_dnsmasq-full=y
+
+            CONFIG_PACKAGE_ip-full=y
+
+            CONFIG_PACKAGE_kmod-tun=y
+
+            CONFIG_PACKAGE_luci-app-passwall=y
+
+            CONFIG_PACKAGE_luci-app-mwan3=y
+
+            CONFIG_PACKAGE_mwan3=y
+
+            CONFIG_PACKAGE_sing-box=y
           EOF
           make defconfig
 
@@ -80,7 +93,7 @@ jobs:
 
       - name: Build all
         run: |
-          make -j$(nproc) IGNORE_ERRORS=1
+          make -j$(nproc)
 
       - name: Upload bin to artifacts
         uses: actions/upload-artifact@v3
